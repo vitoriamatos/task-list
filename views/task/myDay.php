@@ -18,227 +18,6 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<!--
-<div class="card" id="my-day-title">
-
-  <h5> <i class="fa fa-sun-o"></i> My Day</h5>
-  <hr class="task-hr">
-  <h5>19 de setembro de 2022</h5>
-
-</div>
-
-<button id="task" class="btn btn-primary float-right rounded-circle" style="margin-bottom: 2rem;">+</button>
-<input type="checkbox" onClick="toggle(this)" class="task_index">
-<label id="task_label" for="scales">Select all</label>
-
-<div id="new_chq" class="my-day-body task-card" style="display: none;">
-  <form action="/save-task" method="get">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="card card-task">
-          <div class="card-body">
-            <h5 class="card-title">Task</h5>
-            <input type="hidden" name="category_id" value="2">
-            <input class="form-control" type="text" name="task_name"></input>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card card-task">
-          <div class="card-body">
-            <h5 class="card-title">Expected day</h5>
-            <input type="text" style="width : 80%" name="expected_day" class="calendario"></input>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card card-task">
-          <div class="card-body">
-            <h5 class="card-title">Expected time</h5>
-            <input type="text" name="expected_time"></input>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary input-task">Submit</button>
-    <a type=button" id="cancel-task" class=" btn input-task cancel-task">Cancel</a>
-  </form>
-</div>
-<input type="hidden" value="1" id="total_chq">
-<?php foreach ($tasks as $index => $task) : ?>
-  <div class="card col-md-12 my-day-body" style="margin-bottom: 2rem;">
-    <div id="click">
-      <div class="task-id-<?= $task['task_id'] ?>">
-        <div class="row">
-          <div class="col-sm-1">
-            <div class="card card-task">
-              <div class="card-body">
-                <?php if ($task['status'] == 0) : ?>
-                  <input type="checkbox" class="task_index" name="scales" id="task_index-<?= $task['task_id'] ?>" onclick="check(1, <?= $task['task_id'] ?> )">
-                <?php else : ?>
-                  <input type="checkbox" ckass="task_index" name="scales" id="task_index-<?= $task['task_id'] ?>" onclick="check(0, <?= $task['task_id'] ?>)" checked="checked">
-                <?php endif ?>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-11">
-            <div class="row">
-            <div class="col-sm-11">
-            <div class="card card-task">
-              <div class="card-body">
-                <h4><label id="task_label-<?= $task['task_id'] ?>" contenteditable="true" onkeyup="edit_task(<?= $task['task_id'] ?>)"><?= $task['task_name'] ?></label></h4>
-                <hr>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-10">
-            <div class="card card-task">
-              <div class="card-body">
-                <form action="/delete-task" method="get">
-                  <label id="task_label-<?= $task['task_id'] ?>" contenteditable="true" onkeyup="edit_task(<?= $task['task_id'] ?>)">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </label>
-                </form>
-              </div>
-            </div>
-          </div>
-        
-        <div class="col-sm-3">
-            <div class="card card-task">
-              <div class="card-body">
-                <label id="task_day-<?= $task['task_id'] ?>" class="table-content" contenteditable="true" onkeyup="edit_day(<?= $task['task_id'] ?>)" for="scales"><?= $task['expected_day'] ?></label>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="card card-task">
-              <div class="card-body">
-                <label id="task_time-<?= $task['task_id'] ?>" class="table-content calendario" contenteditable="true" onkeyup="edit_time(<?= $task['task_id'] ?>)" for="scales"><?= $task['expected_time'] ?></label>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="card card-task">
-              <div class="card-body">
-                <form action="/delete-task" method="get">
-                  <input type="hidden" id="task_id" name="task_id" value="<?= $task['task_id'] ?>">
-                  <button type="submit" style="float: right;" class="delete-task center"><i class="fa fa-trash"></i></button>
-                </form>
-              </div>
-            </div>
-          </div>
-              
-            </div>
-          </div>
-
-          <div id="edit-task-<?= $task['task_id'] ?>" style="display: none;">
-            <form action="/edit-task" method="get">
-              <input type="hidden" id="task_id" name="task_id" value="<?= $task['task_id'] ?>">
-              <input type="hidden" id="user_id" name="user_id" value="<?= $task['user_id'] ?>">
-              <input class="form-control" id="input_task_edit" type="text" name="task_name"></input>
-              <button type="submit" class="btn btn-primary input-task">Save</button>
-              <a type=button" id="cancel-edit-<?= $task['task_id'] ?>" onclick="cancel_edit(<?= $task['task_id'] ?>)" class="btn input-task cancel-task">Cancel</a>
-            </form>
-            </input>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  <?php endforeach ?>
-
-
-
-  </ul>
-
-
-  </div>
-
-  <script type="text/javascript">
-    $('#task').click(function() {
-      $("#new_chq").show();
-    });
-
-    function open_edit(idTask) {
-      document.querySelectorAll("#task_label-" + idTask).forEach(function(node) {
-
-        $("#task_label-" + idTask).hide();
-        $("#edit-task-" + idTask).show();
-
-      });
-    }
-
-
-    function edit_task(idTask) {
-      $("#task_label-" + idTask).on('keyup', function(event) {
-        if (event.keyCode === 13) {
-          var task = document.getElementById("task_label-" + idTask).textContent;
-          window.location.href = "/edit-task?task_id=" + idTask + "&task_name=" + task;
-        }
-      });
-    }
-
-    function edit_day(idTask) {
-      $("#task_day-" + idTask).on('keyup', function(event) {
-        if (event.keyCode === 13) {
-          var task = document.getElementById("task_day-" + idTask).textContent;
-          window.location.href = "/edit-day?task_id=" + idTask + "&expected_day=" + task;
-        }
-      });
-    }
-
-    function edit_time(idTask) {
-      $("#task_time-" + idTask).on('keyup', function(event) {
-        if (event.keyCode === 13) {
-          var task = document.getElementById("task_time-" + idTask).textContent;
-          window.location.href = "/edit-time?task_id=" + idTask + "&expected_time=" + task;
-        }
-      });
-    }
-
-
-
-    function cancel_edit(idTask) {
-      // location.reload();
-      $(".task-id-" + idTask).show();
-      $("#edit-task-" + idTask).hide();
-    };
-
-    $('#cancel-task').click(function() {
-      $("#new_chq").hide();
-    });
-
-    jQuery(function($) {
-      var $j = jQuery.noConflict();
-      $(".calendario").datepicker({
-        showOn: "button",
-        buttonImage: "/assets/calendar.png",
-        buttonImageOnly: true,
-        showButtonPanel: true,
-        changeMonth: true,
-        changeYear: true
-      });
-    });
-
-    function toggle(source) {
-      checkboxes = document.getElementsByName('scales');
-      for (var i = 0, n = checkboxes.length; i < n; i++) {
-        checkboxes[i].checked = source.checked;
-      }
-
-    }
-
-    function check(value, idTask) {
-      if (window.confirm("Do you really want to change this task status?") == true) {
-        window.location.href = "/update-status?task_id=" + idTask + "&status=" + value;
-      } else {
-        document.getElementById("task_index-" + idTask).checked = false;
-      }
-    }
-  </script> -->
-
 
 
 <!-- Dashboard (Parent Block)-->
@@ -249,14 +28,13 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
     <!-- Dashboard Header (Block)-->
     <div class="dashboard-header">
       <!-- Search (Element)-->
-      <div class="dashboard-header__search">
+      <div class="dashboard-header__new" style="float:right">
 
-        <button type="button" class="btn btn-primary" id="#exampleModalCenter" onclick="process();">
-          Process
+        <button type="button" class="save-subtask" id="#exampleModalCenter" onclick="process();">
+          + New Task
         </button>
       </div>
-      <!-- New (Element)-->
-      <div class="dashboard-header__new"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/planner_dashboard_new_plan.svg" /></div>
+
     </div>
     <!-- Dashboard Content Panel (Element)-->
     <div class="dashboard-content__panel" data-panel-id="home">
@@ -270,10 +48,15 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
 
         <?php foreach ($tasks as $index => $task) : ?>
           <div class="dashboard-list__item" data-item-id="subtasks-<?= $task['task_main_id'] ?>">
-            <!-- Title (Element)-->
             <h2><?= $task['task_title'] ?></h2>
-            <!-- Date (Element)--><span>15 May - 23 May 2016</span>
+            <span>15 May - 23 May 2016</span>
+
+            
           </div>
+          <form action="/delete-task-main" method="get">
+              <input type="hidden" id="task_id" name="task_main_id" value="<?= $task['task_main_id'] ?>">
+              <button type="submit" style="float: right;" class="delete-task center"><i class="fa fa-trash" style="float: right;"></i></button>
+            </form>
           <!-- Dasboard List Item (Element)-->
         <?php endforeach ?>
       </div>
@@ -295,7 +78,7 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
         </div>
         <!-- Content (Element)-->
         <div class="dashboard-preview__content">
-          <section>
+          <section class="scroll">
             <button id="task" class="btn float-right rounded-circle btn-add-task" style="margin-bottom: 2rem;" id="task" onclick="add_task(<?= $task['task_main_id'] ?>)">+ </button>
 
             <h2>My Tasks</h2>
@@ -308,7 +91,7 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
                   </div>
                   <input type="hidden" name="task_main_id" value="<?= $task['task_main_id'] ?>"></input>
                   <input type="hidden" name="category_id" value="2">
-                  <input placeholder="New Task" class="input-subtask" type="text"><span class="highlight"></span><span class="bar"></span>
+                  <input placeholder="New Task" class="input-subtask" name="task_name" type="text"><span class="highlight"></span><span class="bar"></span>
                   <div style="margin-top: 2rem;">
                     <button class="col-md-3 save-subtask" style="margin-right: 1rem;" type="submit">Save</button>
                     <button class="col-md-4" type="button" id="cancel-task">Cancel</button>
@@ -320,82 +103,67 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
 
             <?php foreach ($subTasks as $index => $subtask) : ?>
               <?php if ($subtask['task_main_id'] == $task['task_main_id']) : ?>
-                <!-- <ul id="incomplete-tasks">
-                  <h4><label id="task_label-<?= $subtask['task_id'] ?>" contenteditable="true" onkeyup="edit_task(<?= $subTask['task_id'] ?>)"><?= $subTask['task_name'] ?></label></h4><i class="fa fa-trash"></i></i>
-                  <div class="col-sm-2">
-                    <div class="card card-task">
-                      <div class="card-body">
-                        <form action="/delete-task" method="get">
-                          <input type="hidden" id="task_id" name="task_id" value="<?= $task['task_id'] ?>">
-                          <button type="submit" style="float: right;" class="delete-task center"><i class="fa fa-trash"></i></button>
-                        </form>
+
+                <div class="card col-md-12 my-day-body" style="margin-bottom: 2rem;">
+                  <div id="click">
+                    <div class="task-id-<?= $subtask['task_id'] ?>">
+                      <div class="row">
+                        <div class="col-sm-10">
+                          <div class="row">
+                            <div class="col-sm-10">
+                              <div class="card card-task">
+
+                                <?php if ($subtask['status'] == 0) : ?>
+                                  <div class="card-body">
+                                    <ul>
+                                      <input type="checkbox" style="display: flex;float: left;" class="task_index" name="scales" id="task_index-<?= $subtask['task_id'] ?>" onclick="check(1, <?= $subtask['task_id'] ?> )">
+                                      <label for="scales" style="margin-left: 3rem; margin-top:0px" id="task_label-<?= $subtask['task_id'] ?>" contenteditable="true" onkeyup="edit_task(<?= $subtask['task_id'] ?>)"><?= $subtask['task_name'] ?></label>
+                                    </ul>
+                                  </div>
+                                <?php else : ?>
+                                  <div class="card-body">
+                                    <ul>
+                                      <input type="checkbox" style="display: flex;float: left;" class="task_index" name="scales" id="task_index-<?= $subtask['task_id'] ?>" onclick="check(0, <?= $subtask['task_id'] ?>)" checked="checked">
+                                      <label for="scales" style="margin-left: 3rem;margin-top:0px" id="task_label-<?= $subtask['task_id'] ?>" contenteditable="true" onkeyup="edit_task(<?= $subtask['task_id'] ?>)"><?= $subtask['task_name'] ?></label>
+                                    </ul>
+                                  </div>
+                                <?php endif ?>
+
+                                <hr>
+
+
+                              </div>
+                            </div>
+                            <div class="col-sm-2">
+                              <div class="card card-task">
+                                <div class="card-body">
+                                  <form action="/delete-task" method="get">
+                                    <input type="hidden" id="task_id" name="task_id" value="<?= $subtask['task_id'] ?>">
+                                    <button type="submit" style="float: right;" class="delete-task center"><i class="fa fa-trash"></i></button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div id="edit-task-<?= $subask['task_id'] ?>" style="display: none;">
+                          <form action="/edit-task" method="get">
+                            <input type="hidden" id="task_id" name="task_id" value="<?= $subtask['task_id'] ?>">
+                            <input type="hidden" id="user_id" name="user_id" value="<?= $subtask['user_id'] ?>">
+                            <input class="form-control" id="input_task_edit" type="text" name="task_name"></input>
+                            <button type="submit" class="btn btn-primary input-task">Save</button>
+                            <a type=button" id="cancel-edit-<?= $subtask['task_id'] ?>" onclick="cancel_edit(<?= $subtask['task_id'] ?>)" class="btn input-task cancel-task">Cancel</a>
+                          </form>
+                          </input>
+
+                        </div>
                       </div>
                     </div>
+
                   </div>
-                </ul> -->
-
-  <div class="card col-md-12 my-day-body" style="margin-bottom: 2rem;">
-    <div id="click">
-      <div class="task-id-<?= $subtask['task_id'] ?>">
-        <div class="row">
-          <!-- <div class="col-sm-1">
-            <div class="card card-task">
-              <div class="card-body">
-               
-              </div>
-            </div>
-          </div> -->
-
-          <div class="col-sm-10">
-            <div class="row">
-            <div class="col-sm-10">
-            <div class="card card-task">
-              <div class="card-body">
-              <?php if ($subtask['status'] == 0) : ?>
-                <ul>
-                  <input type="checkbox" style="    display: flex;
-    float: left;"class="task_index" name="scales" id="task_index-<?= $subtask['task_id'] ?>" onclick="check(1, <?= $subtask['task_id'] ?> )">
-                  <label for="scales" style="margin-left: 3rem;" id="task_label-<?= $subtask['task_id'] ?>" contenteditable="true" onkeyup="edit_task(<?= $subtask['task_id'] ?>)"><?= $subtask['task_name'] ?></label>
-                  <?php else : ?>
-                  <input type="checkbox" class="task_index" name="scales" id="task_index-<?= $subtask['task_id'] ?>" onclick="check(0, <?= $subtask['task_id'] ?>)" checked="checked">
-                  <label for="scales" style="margin-left: 3rem;" id="task_label-<?= $subtask['task_id'] ?>" contenteditable="true" onkeyup="edit_task(<?= $subtask['task_id'] ?>)"><?= $subtask['task_name'] ?></label>
-                  <?php endif ?>
-                </ul>
-                <hr>
-               
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="card card-task">
-              <div class="card-body">
-                <form action="/delete-task" method="get">
-                  <input type="hidden" id="task_id" name="task_id" value="<?= $subtask['task_id'] ?>">
-                  <button type="submit" style="float: right;" class="delete-task center"><i class="fa fa-trash"></i></button>
-                </form>
-              </div>
-            </div>
-          </div>
-              
-            </div>
-          </div>
-
-          <div id="edit-task-<?= $subask['task_id'] ?>" style="display: none;">
-            <form action="/edit-task" method="get">
-              <input type="hidden" id="task_id" name="task_id" value="<?= $subtask['task_id'] ?>">
-              <input type="hidden" id="user_id" name="user_id" value="<?= $subtask['user_id'] ?>">
-              <input class="form-control" id="input_task_edit" type="text" name="task_name"></input>
-              <button type="submit" class="btn btn-primary input-task">Save</button>
-              <a type=button" id="cancel-edit-<?= $subtask['task_id'] ?>" onclick="cancel_edit(<?= $subtask['task_id'] ?>)" class="btn input-task cancel-task">Cancel</a>
-            </form>
-            </input>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-
+                </div>
               <?php endif ?>
             <?php endforeach ?>
 
@@ -587,10 +355,10 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
   }
 
   function check(value, idTask) {
-      if (window.confirm("Do you really want to change this task status?") == true) {
-        window.location.href = "/update-status?task_id=" + idTask + "&status=" + value;
-      } else {
-        document.getElementById("task_index-" + idTask).checked = false;
-      }
+    if (window.confirm("Do you really want to change this task status?") == true) {
+      window.location.href = "/update-status?task_id=" + idTask + "&status=" + value;
+    } else {
+      document.getElementById("task_index-" + idTask).checked = false;
     }
+  }
 </script>

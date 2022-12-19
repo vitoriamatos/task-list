@@ -441,3 +441,8 @@ li > .delete:hover {
   text-decoration: line-through;
   color: #888;
 }
+
+.scroll{
+  height: 300px;
+  overflow:auto; 
+}

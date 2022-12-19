@@ -44,5 +44,6 @@ $app->router->get('/edit-task', [TaskController::class, 'edit']);
 $app->router->get('/edit-day', [TaskController::class, 'edit_day']);
 $app->router->get('/edit-time', [TaskController::class, 'edit_time']);
 $app->router->get('/delete-task', [TaskController::class, 'delete']);
+$app->router->get('/delete-task-main', [TaskController::class, 'delete_task_main']);
 $app->router->get('/update-status', [TaskController::class, 'update_status']);
 $app->run();

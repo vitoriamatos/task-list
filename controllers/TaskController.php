@@ -5,6 +5,7 @@ namespace app\controllers;
 use thecodeholic\phpmvc\Controller;
 use thecodeholic\phpmvc\Request;
 use app\models\Task;
+use app\models\TaskMain;
 
 class TaskController extends Controller
 {
@@ -43,7 +44,6 @@ class TaskController extends Controller
     {
         $task = new Task();
         
-      
         $task->__set('user_id', $_SESSION['user']);
         $task->__set('category_id', $_GET['category_id']);
         $task->__set('task_name', $_GET['task_name']);
@@ -53,6 +53,7 @@ class TaskController extends Controller
 
         return $this->render('task/myDay');
     }
+    
 
     public function edit(Request $request)
     {
@@ -123,4 +124,18 @@ class TaskController extends Controller
         return $this->render('task/myDay');
     }
 
+    public function delete_task_main(Request $request)
+    {
+        $task = new Task();
+        
+        $task->__set('user_id', $_SESSION['user']);
+        $task->__set('task_main_id', $_GET['task_main_id']);
+        
+        $task->delete_task_main();
+
+        return $this->render('task/myDay');
+    }
+
 }
+
+    

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'thecodeholic/phpmvc-framework',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'a2c8ceeba109b0aa7e5c2b2d70aa609b246d5752',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -65,9 +65,9 @@
             'dev_requirement' => false,
         ),
         'thecodeholic/phpmvc-framework' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'a2c8ceeba109b0aa7e5c2b2d70aa609b246d5752',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

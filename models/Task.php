@@ -193,4 +193,39 @@ class Task extends Model
         return $this;
     }
 
+    public function delete_task_main(): object
+    {
+        $query = "DELETE FROM Task_Main WHERE user_id = :user_id AND task_main_id = :task_main_id";
+
+        $db = Application::$app->db;
+        $statement = $db->prepare($query);
+        
+        $user_id = (int)$this->__get('user_id');
+        $task_main_id = (int)$this->__get('task_main_id');
+
+        $statement->bindValue(':user_id', $user_id);
+        $statement->bindValue(':task_main_id', $task_main_id);
+
+        $this->delete_subtask($user_id, $task_main_id);
+
+        $statement->execute();
+        return $this;
+    }
+
+    public function delete_subtask($user_id, $task_main_id): object
+    {
+        $query = "DELETE FROM task WHERE user_id = :user_id AND task_main_id = :task_main_id";
+
+        $db = Application::$app->db;
+        $statement = $db->prepare($query);
+        
+        $statement->bindValue(':user_id', $user_id);
+        $statement->bindValue(':task_main_id', $task_main_id);
+
+        $statement->execute();
+        return $this;
+    }
+
 }
+
+
