@@ -51,12 +51,12 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
             <h2><?= $task['task_title'] ?></h2>
             <span>15 May - 23 May 2016</span>
 
-            
-          </div>
-          <form action="/delete-task-main" method="get">
+            <form action="/delete-task-main" method="get">
               <input type="hidden" id="task_id" name="task_main_id" value="<?= $task['task_main_id'] ?>">
               <button type="submit" style="float: right;" class="delete-task center"><i class="fa fa-trash" style="float: right;"></i></button>
             </form>
+          </div>
+          
           <!-- Dasboard List Item (Element)-->
         <?php endforeach ?>
       </div>

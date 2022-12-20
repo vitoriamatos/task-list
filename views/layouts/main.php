@@ -40,52 +40,32 @@
             </header>
             <div class="menu-bar">
                 <div class="menu">
-                    <li class="search-box">
-                        <i class='fa fa-search'></i>
-                        <input type="text" placeholder="Search...">
-                    </li>
+                   
                     <ul class="menu-links">
                         <li class="nav-link">
                             <a href="/my-day">
-                                <i class='fa fa-home dashboard-icon'></i>
+                                <i class='fa fa-sun-o dashboard-icon'></i>
                                 <span class="text nav-text">My Day</span>
                             </a>
                         </li>
                         <li class="nav-link">
                             <a href="#">
-                                <i class='fa fa-home dashboard-icon'></i>
-                                <span class="text nav-text">Revenue</span>
+                                <i class='fa fa-shopping-cart dashboard-icon'></i>
+                                <span class="text nav-text">Shopping List</span>
                             </a>
                         </li>
                         <li class="nav-link">
                             <a href="#">
-                                <i class='fa fa-home dashboard-icon'></i>
-                                <span class="text nav-text">Notifications</span>
+                                <i class='fa fa-pills dashboard-icon'></i>
+                                <span class="text nav-text">Medicine List</span>
                             </a>
                         </li>
-                        <li class="nav-link">
-                            <a href="#">
-                                <i class='fa fa-home dashboard-icon'></i>
-                                <span class="text nav-text">Analytics</span>
-                            </a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="#">
-                                <i class='fa fa-home dashboard-icon'></i>
-                                <span class="text nav-text">Likes</span>
-                            </a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="#">
-                                <i class='fa fa-home dashboard-icon'></i>
-                                <span class="text nav-text">Wallets</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
                 <div class="bottom-content">
                     <li class="">
-                        <a href="#">
+                        <a href="/logout">
                             <i class='fa fa-hom dashboard-icon'></i>
                             <span class="text nav-text">Logout</span>
                         </a>
@@ -145,9 +125,6 @@
             <div class="collapse navbar-collapse" id="navbarRightAlignExample">
                 <!-- Left links -->
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
                     <?php
                     if (Application::isGuest()) : ?>
 
@@ -157,27 +134,18 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/register">Register</a>
                         </li>
-                        < <?php else : ?> <li class="nav-item">
-                            <a class="nav-link" href="/profile">
-                                Profile
-                            </a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/logout">
-                                    Welcome <?php echo Application::$app->user->getDisplayName() ?> (Logout)
-                                </a>
-                            </li>
+                        <?php else : ?> 
+                           
 
-                        <?php endif; ?>
                         <!-- Navbar dropdown -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                                Dropdown
+                            Welcome <?php echo Application::$app->user->getDisplayName() ?>
                             </a>
                             <!-- Dropdown menu -->
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="/profile">Profile</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="#">Another action</a>
@@ -190,9 +158,9 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
-                        </li>
+
+                        <?php endif; ?>
+                       
                 </ul>
                 <!-- Left links -->
             </div>
