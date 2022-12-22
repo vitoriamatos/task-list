@@ -134,7 +134,8 @@ body {
 }
 
 .dashboard-preview {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/planner_dashboard_background.jpg") no-repeat;
+  background: url("https://i.pinimg.com/originals/6c/d3/82/6cd3823444bf16c0bab21c948cce0c67.jpg") no-repeat;
+  /* background-color: #becfcf; */
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -221,7 +222,7 @@ body {
 }
 
 .progress-bar__bar {
-  background: #8FC6C3;
+  background: #ecf5f7 !important;
   height: 100%;
   border-radius: 6.25rem;
 }
@@ -230,7 +231,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: #A7DEDB;
+  background: #3ea7b9 !important;
   border-radius: 6.25rem;
   box-shadow: 0.125rem 0.25rem 0.75rem rgba(167, 222, 219, 0.56);
   padding: 0.375rem 0.5rem;
@@ -253,7 +254,6 @@ input.input-subtask {
   -webkit-appearance: none;
   display: block;
   background: #F5F7F7;
-  ;
   color: #636363;
   width: 100%;
   border: none;
@@ -291,7 +291,7 @@ label.label-subtask {
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #94c7c4;
+  background: #4ac6db;
   transition: all 0.2s ease;
 }
 
@@ -340,7 +340,7 @@ form.form-subtask {
 }
 
 .save-subtask {
-  background: #94c7c4;
+  background: #4ac6db;
   ;
   padding: 8px;
   padding-right: 8px;
@@ -352,7 +352,7 @@ form.form-subtask {
 
 
 .save-subtask:hover {
-  background: #6c918e;
+  background: #3ea7b9;
 }
 
 #cancel-task {
@@ -360,14 +360,14 @@ form.form-subtask {
   padding: 8px;
   padding-right: 8px;
   padding-left: 8px;
-  border: 1px solid #94c7c4;
+  border: 1px solid #4ac6db;
   border-radius: 8px;
   color: #94c7c4;
 }
 
 #cancel-task:hover {
-  border: 1px solid #6c918e;
-  color: #6c918e;
+  border: 1px solid #3ea7b9;
+  color: #3ea7b9;
 }
 
 .btn-add-task{
@@ -415,8 +415,8 @@ input, button {
 /* Task list */
 li {
   overflow: hidden;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  padding: 0 0!important;
+  border-bottom: none!important;
 }
 li > input[type="checkbox"] {
   margin: 0 10px;

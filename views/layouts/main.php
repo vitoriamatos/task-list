@@ -28,15 +28,17 @@
         <nav class="sidebar close">
             <header>
                 <div class="image-text">
+                <a href="/">
                     <span class="image">
-                        <img src="https://cdn0.iconfinder.com/data/icons/social-media-2091/100/social-32-512.png" alt="">
+                        <img src="https://i.pinimg.com/originals/83/36/bc/8336bce84c7dd1f1388ec881afb58071.jpg" width="100" alt="/home">
                     </span>
+                </a>
                     <div class="text logo-text">
-                        <span class="name">PenCode</span>
+                        <span class="name">Task List App</span>
                         <span class="profession">👋 Hello</span>
                     </div>
                 </div>
-                <i class='bx bx-chevron-right toggle'></i>
+                <i class='bx bx-chevron-right toggle'>></i></i>
             </header>
             <div class="menu-bar">
                 <div class="menu">
@@ -44,23 +46,10 @@
                     <ul class="menu-links">
                         <li class="nav-link">
                             <a href="/my-day">
-                                <i class='fa fa-sun-o dashboard-icon'></i>
+                                <i class='fa fa-star dashboard-icon'></i>
                                 <span class="text nav-text">My Day</span>
                             </a>
                         </li>
-                        <li class="nav-link">
-                            <a href="#">
-                                <i class='fa fa-shopping-cart dashboard-icon'></i>
-                                <span class="text nav-text">Shopping List</span>
-                            </a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="#">
-                                <i class='fa fa-pills dashboard-icon'></i>
-                                <span class="text nav-text">Medicine List</span>
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
                 <div class="bottom-content">

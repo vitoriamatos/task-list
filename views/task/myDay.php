@@ -49,14 +49,14 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
         <?php foreach ($tasks as $index => $task) : ?>
           <div class="dashboard-list__item" data-item-id="subtasks-<?= $task['task_main_id'] ?>">
             <h2><?= $task['task_title'] ?></h2>
-            <span>15 May - 23 May 2016</span>
+            <span>expected conclusion: <?= $task['estimate_conclusion_day'] ?></span>
 
             <form action="/delete-task-main" method="get">
               <input type="hidden" id="task_id" name="task_main_id" value="<?= $task['task_main_id'] ?>">
               <button type="submit" style="float: right;" class="delete-task center"><i class="fa fa-trash" style="float: right;"></i></button>
             </form>
           </div>
-          
+      
           <!-- Dasboard List Item (Element)-->
         <?php endforeach ?>
       </div>
@@ -72,9 +72,18 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
         <!-- Header (Element)-->
         <div class="dashboard-preview__header">
           <h4><?= $task['task_title'] ?></h4>
-          <h2>In progress</h2>
 
-          </h3>
+          <?php if($task['status'] == 0):?>
+          <h2>In progress</h2>
+          <?php else : ?>
+            <h2>Finish</h2>  
+          <?php endif?>
+          </section>
+          <div class="progress-bar">
+            <div class="progress-bar__bar" style="width: #{percetange}%"></div>
+            <div class="progress-bar__badge" style="left: #{percetange}%">73%</div>
+          </div>
+          </section>
         </div>
         <!-- Content (Element)-->
         <div class="dashboard-preview__content">
@@ -131,7 +140,6 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
 
                                 <hr>
 
-
                               </div>
                             </div>
                             <div class="col-sm-2">
@@ -154,7 +162,7 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
                             <input type="hidden" id="user_id" name="user_id" value="<?= $subtask['user_id'] ?>">
                             <input class="form-control" id="input_task_edit" type="text" name="task_name"></input>
                             <button type="submit" class="btn btn-primary input-task">Save</button>
-                            <a type=button" id="cancel-edit-<?= $subtask['task_id'] ?>" onclick="cancel_edit(<?= $subtask['task_id'] ?>)" class="btn input-task cancel-task">Cancel</a>
+                            <a type="button" id="cancel-edit-<?= $subtask['task_id'] ?>" onclick="cancel_edit(<?= $subtask['task_id'] ?>)" class="btn input-task cancel-task">Cancel</a>
                           </form>
                           </input>
 
@@ -167,13 +175,7 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
               <?php endif ?>
             <?php endforeach ?>
 
-          </section>
-          <h2>Progress<span>(Day 4 of 10)</span></h2>
-          <div class="progress-bar">
-            <div class="progress-bar__bar" style="width: #{percetange}%"></div>
-            <div class="progress-bar__badge" style="left: #{percetange}%">73%</div>
-          </div>
-          </section>
+         
         </div>
       </div>
     <?php endforeach ?>
@@ -189,20 +191,19 @@ include_once __DIR__ . "/../dashboard/dashboard.php";
         </button>
       </div>
       <div class="modal-body">
-        <h6>First declare the task name and whould you planed finished</h6>
+        <h6>Declare the task name and whould you planed finished</h6>
         <hr>
         <form action="/save-task" method="get">
           <input type="hidden" name="category" value="2">
           <label>Name</label>
-          <input class="form-control" id="mySelectedValue" name="task_title" style="margin-top: 10px;"></input><br>
+          <input placeholder="Name Task" id="mySelectedValue" class="input-subtask" name="task_title" type="text"><span class="highlight"></span><span class="bar"></span></input>
+         <br>
           <label>Expected Day for conclusion:</label>
-          <input class="form-control" id="mySelectedValue" name="estimate_conclusion_day" estyle="margin-top: 10px;"></input><br>
-          <button type="submit" class="btn btn-primary input-task">Submit</button>
+         <input placeholder="00/00/0000" id="mySelectedValue" class="input-subtask" name="estimate_conclusion_day" type="text"><span class="highlight"></span><span class="bar"></span>
+         <br>
+         <button type="submit" class="save-subtask">Save</button>
+         
         </form>
-
-        <button class="btn btn-primary send" style='font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif; font-size: 14px;"'>
-          Create
-        </button>
       </div>
     </div>
   </div>

@@ -26,27 +26,19 @@ class ColorPalette {
 
   setColors() {
     // pick a random hue somewhere between 220 and 360
-    this.hue = ~~random(220, 360);
-    this.complimentaryHue1 = this.hue + 30;
-    this.complimentaryHue2 = this.hue + 60;
+    this.hue = "#0000CD";
+    this.complimentaryHue1 = "#5F9EA0";
+    this.complimentaryHue2 = "#7FFFD4";
     // define a fixed saturation and lightness
-    this.saturation = 95;
+    this.saturation = 50;
     this.lightness = 50;
 
     // define a base color
-    this.baseColor = hsl(this.hue, this.saturation, this.lightness);
+    this.baseColor = hsl(200, 100, 50);
     // define a complimentary color, 30 degress away from the base
-    this.complimentaryColor1 = hsl(
-      this.complimentaryHue1,
-      this.saturation,
-      this.lightness
-    );
+    this.complimentaryColor1 =   hsl(270, 100, 50);
     // define a second complimentary color, 60 degrees away from the base
-    this.complimentaryColor2 = hsl(
-      this.complimentaryHue2,
-      this.saturation,
-      this.lightness
-    );
+    this.complimentaryColor2 =  hsl(135, 100, 50);
 
     // store the color choices in an array so that a random one can be picked later
     this.colorChoices = [
