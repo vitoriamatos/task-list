@@ -1,7 +1,17 @@
-# PHP MVC framework
+# Task App
+
+
+<h4 align="center"> 
+	🚧  Project Status: 🛠 In progress..  🚧
+</h4>
+
 Minimalistic custom taks list for educational purposes.
 
+This project was created with the purpose of putting into practice my studies about docker
+
+* HOME PAGE
 ![homepage](/assets/homepage.png)
+* WORKSPACE V1.0
 ![workspace](/assets/workspace.png)
 
 ## Installation
@@ -27,4 +37,6 @@ Make sure `docker` and `docker-compose` commands are available in command line.
 1. Run migrations - `docker-compose exec app php migrations.php`
 8. Open in browser http://127.0.0.1:8080
 
-> I appreaciate if you share it.
+<hr>
+
+> Credits: This project is based on a code structure provided by the author [TheCodeholic](https://github.com/thecodeholic) and you can see the original structure in this repository: [php-mvc-framework](https://github.com/thecodeholic/php-mvc-framework).
