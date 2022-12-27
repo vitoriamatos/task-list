@@ -3,7 +3,7 @@
         'name' => 'thecodeholic/phpmvc-framework',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'e208c7d905d7ebe7c6f1aa46c8fdc7d0135dbc44',
+        'reference' => 'a23c69e25ae3146d10321b345af3ccad39d31ac1',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -67,7 +67,7 @@
         'thecodeholic/phpmvc-framework' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'e208c7d905d7ebe7c6f1aa46c8fdc7d0135dbc44',
+            'reference' => 'a23c69e25ae3146d10321b345af3ccad39d31ac1',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
